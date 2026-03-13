@@ -45,13 +45,13 @@ python start.py
 
 - Probability of Correct Answer:
 
-P(correct) = 1 / (1 + e^-(θ - b))
-Ability Update:
+    - P(correct) = 1 / (1 + e^-(θ - b))
+    - Ability Update:
 
-Correct answer: θ_new = θ + α(1 - P)
+    - Correct answer: θ_new = θ + α(1 - P)
 
-Wrong answer: θ_new = θ - α(P)
-where α = 0.1 (learning rate)
+    - Wrong answer: θ_new = θ - α(P)
+    - where α = 0.1 (learning rate)
 
 - Next Question Selection: Choose question with difficulty closest to current ability
 
@@ -98,18 +98,18 @@ Using Swagger UI:
 
 - Test endpoints interactively
 
-**Sample Test Flow:**
+## Sample Test Flow:
 
-# Start session
+### Start session
 POST /start-session → {"session_id": "abc123"}
 
-# Get first question
+### Get first question
 GET /next-question/abc123 → {"text": "What is 2+2?", "difficulty": 0.2}
 
-# Submit answer
+### Submit answer
 POST /submit-answer → {"correct": true, "new_ability": 0.55}
 
-# After 10 questions, get study plan
+### After 10 questions, get study plan
 POST /study-plan/abc123 → "Focus on Algebra and Probability..."
 
 ### Performance Considerations
